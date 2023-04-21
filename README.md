@@ -1,19 +1,19 @@
 # urbanLogicInterview1
+
 A coding challenge for a company I think is super rad
 
 # Problem Description
 
-Presidential Campaign Challenge
-===============================
+# Presidential Campaign Challenge
 
-The Problem
------------
-You are the new logistics manager for a 2020 US Presidential candidate. The 
+## The Problem
+
+You are the new logistics manager for a 2020 US Presidential candidate. The
 campaign has identified a list of 256 cities that the candidate needs to visit
 on the campaign trail.
 
 Because of your candidate's eagerness to go green, a trait owing to their home
-city of San Francisco, your task is to minimize the distance travelled 
+city of San Francisco, your task is to minimize the distance travelled
 by the campaign.
 
 The outgoing logistics manager managed to plot a route that covered 119,950km
@@ -30,8 +30,8 @@ manager's route distance starting and ending in San Francisco.
 The output should be a list of all cities, beginning and ending in San
 Francisco, as well as the total distance travelled.
 
-Sample Input
-------------
+## Sample Input
+
 City,State,Latitude,Longitude
 San Francisco,California,37.7749295,-122.4194155
 Aliso Viejo,California,33.5676842,-117.7256083
@@ -41,8 +41,8 @@ Malden,Massachusetts,42.4250964,-71.066163
 Noblesville,Indiana,40.0455917,-86.0085955
 Delray Beach,Florida,26.4614625,-80.0728201
 
-Sample Output
--------------
+## Sample Output
+
 San Francisco
 Aliso Viejo
 Rapid City
@@ -53,25 +53,25 @@ Delray Beach
 San Francisco
 11334
 
-Challenge Notes
----------------
-  1. You should be provided, along with this file, a file called
-  "cities_all.csv" that contains the full list of cities.
-  
-  2. You may use any programming language or environment to complete this
-  challenge. 
+## Challenge Notes
 
-  3. Please submit all source code and output when you
-  are complete.
+1. You should be provided, along with this file, a file called
+   "cities_all.csv" that contains the full list of cities.
 
-  3. This challenge should take no more than 4 hours of your time. After you
-  have received the challenge, you have 48 hours to respond with your
-  contribution.
-  
-  # My Thoughts On This Problem
-  
-  Well damn guys, I didn't anticipate you to up and give me a version of the travelling salesman problem. This is a pretty classic NP-hard dilemma, and I'm not about to solve it with an efficient exact solution. What I can and will do though, is use one of the heuristic approaches which tend to yield reasonable results in a more efficient time complexity. In fact. I am going to go with the nearest neighbour method, which if I recall is a simple and easy-to-implement heuristic for finding a suboptimal solution to the problem. 
-  
+2. You may use any programming language or environment to complete this
+   challenge.
+
+3. Please submit all source code and output when you
+   are complete.
+
+4. This challenge should take no more than 4 hours of your time. After you
+   have received the challenge, you have 48 hours to respond with your
+   contribution.
+
+# My Thoughts On This Problem
+
+Well damn guys, I didn't anticipate you to up and give me a version of the travelling salesman problem. This is a pretty classic NP-hard dilemma, and I'm not about to solve it with an efficient exact solution. What I can and will do though, is use one of the heuristic approaches which tend to yield reasonable results in a more efficient time complexity. In fact. I am going to go with the nearest neighbour method, which if I recall is a simple and easy-to-implement heuristic for finding a suboptimal solution to the problem.
+
 I'll start by selecting San Francisco as the starting point, and then the method will iteratively identify the nearest unvisited city and adds it to the tour. This process continues until all cities have been visited, and the algorithm returns the resulting tour. Is this a suboptimal solution? Absolutely. Can it potentially lead to worst case routes? Yes, but it's not common. We could contrive a graph for which this methodology would yield worst-case results, but in reality it tends to average above 25% worse than an exact solution, which for O(n^2), I can live with. Keep in mind this problem's exact solution requires a combinatorial solution which sits in a factorial complexity zone. That's abysmal. No way Jose. Anyway, here are some more pros and cons about the method:
 
 Pros:
@@ -81,5 +81,9 @@ The algorithm works well on small to medium-sized instances of the traveling sal
 
 Cons:
 The nearest neighbor algorithm is not guaranteed to find the optimal solution to the traveling salesman problem.
-Normally the algorithm can be sensitive to the choice of random starting city, which can lead to very different solutions for different starting points. 
+Normally the algorithm can be sensitive to the choice of random starting city, which can lead to very different solutions for different starting points.
 The resulting tour may be significantly longer than the optimal tour, especially for large instances of the traveling salesman problem.
+
+# My Assumptions On This Problem
+
+I am making the assumption that this political candidate is able to travel in a straight line between all the available cities. I am assuming this so that I can plot distances using a Haversine formula because it simplifies the problem for me and because I don't want to query the maps api 256^2 times in order to more accurately envision this problem. Hire me and I will that and more. Just watch.
