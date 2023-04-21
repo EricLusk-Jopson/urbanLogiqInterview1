@@ -61,7 +61,7 @@ Challenge Notes
   2. You may use any programming language or environment to complete this
   challenge. 
 
-  3. Please submit all source code and output to max@urbanlogiq.com when you
+  3. Please submit all source code and output when you
   are complete.
 
   3. This challenge should take no more than 4 hours of your time. After you
